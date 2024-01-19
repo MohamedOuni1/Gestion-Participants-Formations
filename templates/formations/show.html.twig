@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ formation.titre }}{% endblock %}
+
+{% block body %}
+        <div class="formation-details">
+           
+          <br><br>  
+<h1><span style="color: blue;">Titre</span> : {{ formation.titre }}</h1>
+<h1><span style="color:blue;">Durée</span> : {{ formation.duree }} heuers</h1>
+<h1><span style="color:red;">Date de début:</span> : {{ formation.beginat|date('Y-m-d') }}</h1>
+            
+            
+            <hr>
+            <a href="../home1" class="btn btn-danger back-button">Retour</a>
+        </div>
+{% endblock %}

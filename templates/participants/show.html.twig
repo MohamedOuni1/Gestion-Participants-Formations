@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ participant.nom }}{% endblock %}
+
+
+{% block body %}
+        <div class="participant-details">
+        <br><br>
+           <h1><span style="color: blue;">Nom</span> : {{ participant.nom }}</h1>
+<h1><span style="color: blue;">Email</span> : {{ participant.email }}</h1>
+<h1><span style="color:blue;">Telephone</span> : {{ participant.telephone }}</h1>
+<h1><span style="color:red;">Formation</span> : {{ participant.formation.titre }}</h1>
+            <hr>
+             {% if participant.image %}
+<img src="{{ participant.image.url }}" alt="{{ participant.nom }}" height="200px" width="200px">
+              {% else %}
+                <p class="mt-3">No image available</p>
+              {% endif %}
+            <a href="../home" class="btn btn-danger">Retour</a>
+        </div>
+    </div>
+{% endblock %}
+
+

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+{% block title%} Admin Page {% endblock %}
+
+{% block body %}
+<h1>Litse des Utilisateurs</h1>
+ <table id="users" class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Username</th>
+          <th>email</th>
+          <th>roles</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in users %}
+          <tr>
+            <td>{{ user.id }}</td>
+                        <td>{{ user.username }}</td>
+
+            <td>{{ user.email }}</td>
+             <td>
+                {% for role in user.roles %}
+                 {% if role=="ROLE_USER" %}
+                      Utilisateur
+                {% elseif role=="ROLE_ADMIN" %}
+                      Administrateur
+                 {% endif %}
+                {% endfor %}
+             </td>
+           <td>             
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+{% endblock %}

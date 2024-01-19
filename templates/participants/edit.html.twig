@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+            <h1 class="mb-0">Modifier Un Participant</h1>
+          <div class="card-body">
+            {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+            {{ form_widget(form, {'attr': {'class': 'form-group'}}) }}
+
+            <button type="submit" class="btn btn-danger">Modifier</button>
+
+            {{ form_end(form) }}
+          </div>
+  
+{% endblock %}

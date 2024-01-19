@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Participants{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="text-center mb-4">
+        <h1 style="color: black; font-family: 'Arial', sans-serif;">Liste des Participants</h1>
+    </div>
+
+    {% if participants %}
+        <table id="participants" class="table table-striped mx-auto">
+            <thead class="table-dark">
+                <tr>
+                    <th class="text-center">ID</th>
+                    <th class="text-center">Nom</th>
+                    <th class="text-center">Formation</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for participant in participants %}
+                    <tr>
+                        <td class="text-center">{{ participant.id }}</td>
+                        <td class="text-center">{{ participant.nom }}</td>
+                        <td class="text-center">{{ participant.formation.titre }}</td>
+                        <td class="text-center">
+                            <a href="{{ path('participant_show', {'id': participant.id}) }}" class="btn btn-dark">Détails</a>
+                            <a href="{{ path('edit_participant', {'id': participant.id}) }}" class="btn btn-danger"
+                                onclick="return confirm('Êtes-vous sûr de modifier {{ participant.nom }}?');">Modifier</a>
+                            <a href="{{ path('delete_participant', {'id': participant.id}) }}" class="btn btn-danger"
+                                onclick="return confirm('Êtes-vous sûr de supprimer {{ participant.nom }}?');">Supprimer</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="text-center">Aucun participant</p>
+    {% endif %}
+
+    <div class="text-center mt-4">
+        <a href="{{ path('new_participant') }}" class="btn btn-danger">Ajouter un autre participant</a>
+    </div>
+</div>
+{% endblock %}

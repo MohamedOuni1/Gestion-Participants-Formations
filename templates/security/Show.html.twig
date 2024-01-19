@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ user.username }}{% endblock %}
+
+
+{% block body %}
+
+        <div class="user-details">
+        <br><br>
+           <h1><span style="color: blue;">ID</span> : {{ user.id }}</h1>
+<h1><span style="color: blue;">nom</span> : {{ user.username }}</h1>
+<h1><span style="color:blue;">Email</span> : {{ user.email }}</h1>
+            <hr>
+        </div>
+    </div>
+{% endblock %}
+
+

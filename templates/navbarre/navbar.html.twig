@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-danger">
+<div class="container">
+  <a href="{{ path('arriere') }}" class="navbar-brand"<strong>MEDOUNI</strong></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
+    <span class="navbar-toggle-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="mobile-nav">
+    <ul class="navbar-nav ml-auto">
+
+      {% if   app.user %}
+                
+                    
+                    <li class="nav-item">
+<a href="{{ path('participant_list') }}" class="btn btn-danger"><strong>Gestion participant</strong></a>
+      </li>
+      <li class="nav-item">
+<a href="{{ path('formation_list') }}" class="btn btn-danger"><strong>Gestion formation</strong></a>
+      </li>
+
+    <li class="nav-item">
+        <a href="{{ path('security_logout') }}"class="btn btn-danger"><strong>Déconnexion</strong></a>
+    </li>
+  {% else %}
+
+
+
+
+    <li class="nav-item">
+        <a href="{{ path('login') }}" class="btn btn-danger"><strong>Connexion</strong></a>
+    </li>
+  {% endif %}
+
+
+
+    </ul>
+  </div>
+</div>
+</nav>

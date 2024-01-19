@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<br><br>
+
+{{ form_start(form) }}
+ {{ form_row(form.username) }}
+ {{ form_row(form.email) }}
+ {{ form_row(form.plainPassword.first) }}
+ {{ form_row(form.plainPassword.second) }}
+ <button type="submit" class="btn btn-danger back-button">Register</button>
+{{ form_end(form) }}
+<br>
+    <a href="{{ path('login') }}" class="btn btn-dark back-button">J'ai déja un compte</a>
+
+{% endblock %}
